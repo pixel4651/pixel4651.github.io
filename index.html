@@ -1,0 +1,1309 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日爆料大赛入口_赛事品牌官网 - 原创影像爆料社区</title>
+<meta name="description" content="每日爆料大赛入口官方网站，是国内深耕原创爆料影像的品牌社区，提供赛事报名入口、参赛攻略、创作者矩阵与精品内容，打造值得信赖的爆料内容生态。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23e8442a'/%3E%3Cpath d='M26 20l18 12-18 12z' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --baoliao-ink:#17181c;
+    --baoliao-paper:#fffdf9;
+    --baoliao-red:#e8442a;
+    --baoliao-red-dark:#c22f18;
+    --baoliao-gold:#f2a63b;
+    --baoliao-grey:#f1efe9;
+    --baoliao-line:#e3ded3;
+    --baoliao-muted:#6a675f;
+    --baoliao-radius:16px;
+    --baoliao-shadow:0 14px 40px rgba(23,24,28,.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+    background:var(--baoliao-paper);
+    color:var(--baoliao-ink);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  ul{list-style:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none}
+  .baoliao-wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+
+  /* ===== 吸顶区：公告条 + 页头 ===== */
+  .baoliao-sticky{position:sticky;top:0;z-index:80}
+  .baoliao-notice{
+    background:linear-gradient(90deg,var(--baoliao-red) 0%,var(--baoliao-red-dark) 70%,#8f1f0c 100%);
+    color:#fff;font-size:13px;letter-spacing:.02em;
+  }
+  .baoliao-notice-inner{
+    max-width:1200px;margin:0 auto;padding:8px 24px;
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;
+  }
+  .baoliao-notice-tag{
+    background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.45);
+    border-radius:999px;padding:1px 10px;font-size:12px;font-weight:700;white-space:nowrap;
+  }
+  .baoliao-notice-text{opacity:.96}
+  .baoliao-notice-text strong{color:#ffe2b8}
+  .baoliao-notice-more{white-space:nowrap;font-weight:600;border-bottom:1px dashed rgba(255,255,255,.6)}
+  .baoliao-notice-more:hover{color:#ffe2b8}
+  .baoliao-header{
+    background:rgba(255,253,249,.94);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--baoliao-line);
+    box-shadow:0 4px 18px rgba(23,24,28,.05);
+  }
+  .baoliao-header-inner{
+    max-width:1200px;margin:0 auto;padding:10px 24px;
+    display:flex;align-items:center;gap:22px;
+  }
+  .baoliao-brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
+  .baoliao-logo{
+    width:42px;height:42px;border-radius:12px;
+    background:linear-gradient(140deg,var(--baoliao-red),var(--baoliao-gold));
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 16px rgba(232,68,42,.35);
+  }
+  .baoliao-logo svg{width:20px;height:20px}
+  .baoliao-brand-name{font-size:19px;font-weight:800;letter-spacing:.02em;line-height:1.2}
+  .baoliao-brand-sub{display:block;font-size:11px;color:var(--baoliao-muted);font-weight:500;letter-spacing:.14em}
+  .baoliao-nav{display:flex;gap:4px;flex:1;flex-wrap:wrap}
+  .baoliao-nav a{
+    padding:6px 12px;border-radius:9px;font-size:14.5px;font-weight:500;color:#3b3a35;
+    transition:.18s;white-space:nowrap;
+  }
+  .baoliao-nav a:hover{background:var(--baoliao-grey);color:var(--baoliao-red-dark)}
+  .baoliao-search{
+    display:flex;align-items:center;gap:6px;background:var(--baoliao-grey);
+    border:1px solid var(--baoliao-line);border-radius:999px;padding:4px 6px 4px 14px;
+    flex-shrink:0;
+  }
+  .baoliao-search input{
+    border:none;background:transparent;outline:none;font-size:13.5px;width:150px;color:var(--baoliao-ink);
+  }
+  .baoliao-search button{
+    background:var(--baoliao-red);color:#fff;border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600;
+    transition:.18s;
+  }
+  .baoliao-search button:hover{background:var(--baoliao-red-dark)}
+  .baoliao-search-feedback{
+    font-size:12.5px;color:var(--baoliao-red-dark);padding:6px 24px;max-width:1200px;margin:0 auto;
+    display:none;
+  }
+  .baoliao-search-feedback.is-on{display:block}
+  .baoliao-burger{
+    display:none;width:42px;height:42px;border-radius:10px;border:1px solid var(--baoliao-line);
+    background:#fff;flex-direction:column;gap:5px;align-items:center;justify-content:center;margin-left:auto;
+  }
+  .baoliao-burger span{display:block;width:18px;height:2px;background:var(--baoliao-ink);border-radius:2px}
+
+  /* ===== 通用区块 ===== */
+  .baoliao-section{padding:76px 0;scroll-margin-top:132px}
+  .baoliao-section--tint{background:var(--baoliao-grey)}
+  .baoliao-sec-head{max-width:760px;margin-bottom:44px}
+  .baoliao-kicker{
+    display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:800;letter-spacing:.18em;
+    color:var(--baoliao-red-dark);text-transform:uppercase;margin-bottom:12px;
+  }
+  .baoliao-kicker::before{content:"";width:26px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--baoliao-red),var(--baoliao-gold))}
+  .baoliao-sec-head h2{font-size:clamp(24px,3vw,34px);line-height:1.3;letter-spacing:-.01em;font-weight:800}
+  .baoliao-sec-head p{margin-top:12px;color:var(--baoliao-muted);font-size:15px}
+  .baoliao-btn{
+    display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:999px;
+    font-size:14.5px;font-weight:700;transition:.2s;border:1px solid transparent;
+  }
+  .baoliao-btn--solid{background:var(--baoliao-red);color:#fff;box-shadow:0 8px 22px rgba(232,68,42,.28)}
+  .baoliao-btn--solid:hover{background:var(--baoliao-red-dark);transform:translateY(-2px)}
+  .baoliao-btn--ghost{border-color:var(--baoliao-ink);color:var(--baoliao-ink);background:transparent}
+  .baoliao-btn--ghost:hover{background:var(--baoliao-ink);color:#fff}
+  .baoliao-btn--light{background:#fff;color:var(--baoliao-red-dark);border-color:#fff;box-shadow:var(--baoliao-shadow)}
+
+  /* ===== 首屏 ===== */
+  .baoliao-hero{
+    padding:64px 0 72px;
+    background:
+      radial-gradient(900px 420px at 88% -8%,rgba(242,166,59,.22),transparent 60%),
+      radial-gradient(700px 380px at 0% 100%,rgba(232,68,42,.10),transparent 62%),
+      var(--baoliao-paper);
+  }
+  .baoliao-hero-grid{display:grid;grid-template-columns:6fr 5fr;gap:56px;align-items:center}
+  .baoliao-hero-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+  .baoliao-chip{
+    font-size:12.5px;font-weight:700;padding:5px 12px;border-radius:999px;
+    background:#fff;border:1px solid var(--baoliao-line);color:#4b4a44;
+  }
+  .baoliao-chip--red{background:rgba(232,68,42,.1);border-color:rgba(232,68,42,.28);color:var(--baoliao-red-dark)}
+  .baoliao-hero h1{
+    font-size:clamp(36px,5.4vw,62px);line-height:1.08;letter-spacing:-.02em;font-weight:900;
+    margin-bottom:20px;
+  }
+  .baoliao-hero h1 em{
+    font-style:normal;color:var(--baoliao-red);
+    background:linear-gradient(transparent 62%,rgba(242,166,59,.35) 62%);
+  }
+  .baoliao-hero-lead{font-size:16.5px;color:#45443e;max-width:600px;margin-bottom:26px}
+  .baoliao-hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:34px}
+  .baoliao-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:560px}
+  .baoliao-stat{
+    background:#fff;border:1px solid var(--baoliao-line);border-radius:14px;padding:14px 16px;
+    box-shadow:0 6px 18px rgba(23,24,28,.04);
+  }
+  .baoliao-stat b{display:block;font-size:clamp(20px,2.4vw,26px);font-weight:900;color:var(--baoliao-red-dark);line-height:1.2}
+  .baoliao-stat span{font-size:12.5px;color:var(--baoliao-muted)}
+  .baoliao-hero-visual{position:relative}
+  .baoliao-hero-card{
+    border-radius:22px;overflow:hidden;box-shadow:var(--baoliao-shadow);border:1px solid var(--baoliao-line);
+    background:#fff;
+  }
+  .baoliao-hero-card img{width:100%;aspect-ratio:16/10;object-fit:cover}
+  .baoliao-hero-caption{
+    padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;
+    font-size:13.5px;
+  }
+  .baoliao-hero-caption strong{display:block;font-size:15px}
+  .baoliao-hero-caption small{color:var(--baoliao-muted)}
+  .baoliao-live-dot{width:9px;height:9px;border-radius:50%;background:var(--baoliao-red);display:inline-block;margin-right:6px;box-shadow:0 0 0 0 rgba(232,68,42,.5);animation:baoliaoPulse 1.8s infinite}
+  @keyframes baoliaoPulse{0%{box-shadow:0 0 0 0 rgba(232,68,42,.5)}70%{box-shadow:0 0 0 12px rgba(232,68,42,0)}100%{box-shadow:0 0 0 0 rgba(232,68,42,0)}}
+  .baoliao-hero-float{
+    position:absolute;right:-14px;bottom:-20px;background:#fff;border-radius:16px;padding:12px 16px;
+    box-shadow:var(--baoliao-shadow);border:1px solid var(--baoliao-line);display:flex;gap:10px;align-items:center;
+    font-size:13px;
+  }
+  .baoliao-hero-float b{font-size:20px;color:var(--baoliao-red-dark)}
+
+  /* ===== 深度解析 ===== */
+  .baoliao-about-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:52px;align-items:start}
+  .baoliao-about-card{
+    background:#fff;border:1px solid var(--baoliao-line);border-radius:var(--baoliao-radius);
+    padding:26px;box-shadow:0 8px 26px rgba(23,24,28,.05);position:sticky;top:150px;
+  }
+  .baoliao-about-card h3{font-size:18px;margin-bottom:10px}
+  .baoliao-about-card p{font-size:14px;color:var(--baoliao-muted);margin-bottom:16px}
+  .baoliao-about-card ul li{
+    display:flex;gap:10px;align-items:flex-start;font-size:14px;padding:9px 0;border-bottom:1px dashed var(--baoliao-line);
+  }
+  .baoliao-about-card ul li:last-child{border-bottom:none}
+  .baoliao-about-card ul li b{color:var(--baoliao-red-dark)}
+  .baoliao-about-body p{font-size:15.5px;color:#3b3a35;margin-bottom:18px}
+  .baoliao-about-body h3{font-size:20px;margin:26px 0 10px}
+  .baoliao-about-body strong{color:var(--baoliao-red-dark)}
+
+  /* ===== 焦点视频 ===== */
+  .baoliao-focus-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:22px}
+  .baoliao-card{
+    background:#fff;border:1px solid var(--baoliao-line);border-radius:var(--baoliao-radius);
+    overflow:hidden;transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column;
+  }
+  .baoliao-card:hover{transform:translateY(-6px);box-shadow:var(--baoliao-shadow)}
+  .baoliao-thumb{position:relative;overflow:hidden;background:#222}
+  .baoliao-thumb img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .5s}
+  .baoliao-card:hover .baoliao-thumb img{transform:scale(1.06)}
+  .baoliao-thumb-overlay{
+    position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,24,28,0) 42%,rgba(23,24,28,.68) 100%);
+  }
+  .baoliao-play{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.9);
+    display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,.3);
+    transition:.25s;
+  }
+  .baoliao-card:hover .baoliao-play{background:var(--baoliao-red);transform:translate(-50%,-50%) scale(1.08)}
+  .baoliao-play svg{width:18px;height:18px;fill:var(--baoliao-ink);margin-left:3px}
+  .baoliao-card:hover .baoliao-play svg{fill:#fff}
+  .baoliao-thumb-tag{
+    position:absolute;top:12px;left:12px;background:rgba(23,24,28,.72);color:#fff;
+    font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:999px;letter-spacing:.03em;
+  }
+  .baoliao-thumb-meta{position:absolute;left:14px;bottom:12px;color:#fff;font-size:12.5px;opacity:.92}
+  .baoliao-card-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .baoliao-card-body h3{font-size:16.5px;line-height:1.42;font-weight:800}
+  .baoliao-card-body p{font-size:13.5px;color:var(--baoliao-muted);flex:1}
+  .baoliao-card-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:12.5px;color:var(--baoliao-muted);padding-top:8px;border-top:1px dashed var(--baoliao-line)}
+  .baoliao-author{display:flex;align-items:center;gap:8px;font-weight:600;color:#3b3a35}
+  .baoliao-avatar{
+    width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-size:12px;font-weight:800;color:#fff;flex-shrink:0;
+  }
+  .baoliao-actions{display:flex;gap:10px}
+  .baoliao-like{display:flex;align-items:center;gap:4px;font-size:12.5px;color:var(--baoliao-muted);font-weight:600}
+  .baoliao-like.is-liked{color:var(--baoliao-red)}
+  .baoliao-like svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2}
+  .baoliao-like.is-liked svg{fill:currentColor;stroke:currentColor}
+  .baoliao-focus-side{display:grid;gap:16px;grid-template-rows:repeat(2,1fr)}
+  .baoliao-mini{display:grid;grid-template-columns:132px 1fr;gap:14px;align-items:stretch}
+  .baoliao-mini .baoliao-thumb{border-radius:12px}
+  .baoliao-mini .baoliao-thumb img{aspect-ratio:16/10;height:100%}
+  .baoliao-mini .baoliao-play{width:36px;height:36px}
+  .baoliao-mini .baoliao-play svg{width:12px;height:12px}
+  .baoliao-mini-info{display:flex;flex-direction:column;gap:6px;padding:4px 0}
+  .baoliao-mini-info h4{font-size:14.5px;line-height:1.42;font-weight:700}
+  .baoliao-mini-info span{font-size:12px;color:var(--baoliao-muted)}
+
+  /* ===== 专题 ===== */
+  .baoliao-topic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .baoliao-topic{
+    background:#fff;border:1px solid var(--baoliao-line);border-radius:var(--baoliao-radius);overflow:hidden;
+    display:flex;flex-direction:column;transition:.25s;
+  }
+  .baoliao-topic:hover{transform:translateY(-5px);box-shadow:var(--baoliao-shadow);border-color:rgba(232,68,42,.35)}
+  .baoliao-topic img{width:100%;aspect-ratio:16/9;object-fit:cover}
+  .baoliao-topic-body{padding:16px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .baoliao-status{
+    align-self:flex-start;font-size:11.5px;font-weight:800;padding:3px 10px;border-radius:6px;
+    background:rgba(232,68,42,.1);color:var(--baoliao-red-dark);
+  }
+  .baoliao-status--done{background:var(--baoliao-grey);color:#4b4a44}
+  .baoliao-topic-body h3{font-size:16px;font-weight:800;line-height:1.42}
+  .baoliao-topic-body p{font-size:13.5px;color:var(--baoliao-muted);flex:1}
+  .baoliao-topic-link{font-size:13px;font-weight:700;color:var(--baoliao-red-dark)}
+
+  /* ===== 创作者 ===== */
+  .baoliao-creator-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .baoliao-creator{
+    background:#fff;border:1px solid var(--baoliao-line);border-radius:var(--baoliao-radius);
+    padding:22px 18px;text-align:center;transition:.25s;position:relative;
+  }
+  .baoliao-creator:hover{transform:translateY(-5px);box-shadow:var(--baoliao-shadow)}
+  .baoliao-creator .baoliao-avatar{width:58px;height:58px;font-size:22px;margin:0 auto 12px}
+  .baoliao-creator h3{font-size:16px;font-weight:800}
+  .baoliao-creator .baoliao-role{font-size:12px;color:var(--baoliao-red-dark);font-weight:700;margin:2px 0 8px}
+  .baoliao-creator p{font-size:12.8px;color:var(--baoliao-muted);line-height:1.6;min-height:64px}
+  .baoliao-creator-stats{display:flex;justify-content:center;gap:16px;font-size:12px;color:var(--baoliao-muted);border-top:1px dashed var(--baoliao-line);padding-top:10px;margin-top:10px}
+  .baoliao-creator-stats b{display:block;color:var(--baoliao-ink);font-size:14px}
+  .baoliao-creator-btn{margin-top:10px;width:100%;font-size:12.5px;font-weight:700;color:var(--baoliao-red-dark);border:1px solid rgba(232,68,42,.3);border-radius:999px;padding:6px 0;transition:.18s}
+  .baoliao-creator-btn:hover{background:var(--baoliao-red);color:#fff;border-color:var(--baoliao-red)}
+
+  /* ===== 榜单 + 评价 ===== */
+  .baoliao-rank-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:26px;align-items:start}
+  .baoliao-rank{background:#fff;border:1px solid var(--baoliao-line);border-radius:var(--baoliao-radius);padding:8px 0;box-shadow:0 8px 22px rgba(23,24,28,.04)}
+  .baoliao-rank-title{padding:14px 20px 10px;font-size:15px;font-weight:800;display:flex;justify-content:space-between;align-items:center}
+  .baoliao-rank-title span{font-size:11.5px;color:var(--baoliao-muted);font-weight:600}
+  .baoliao-rank-item{display:flex;align-items:center;gap:12px;padding:10px 20px;font-size:13.5px;transition:.15s}
+  .baoliao-rank-item:hover{background:var(--baoliao-grey)}
+  .baoliao-rank-no{width:22px;height:22px;border-radius:6px;background:var(--baoliao-grey);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#4b4a44;flex-shrink:0}
+  .baoliao-rank-item:nth-child(2) .baoliao-rank-no{background:var(--baoliao-red);color:#fff}
+  .baoliao-rank-item:nth-child(3) .baoliao-rank-no{background:var(--baoliao-gold);color:#fff}
+  .baoliao-rank-item:nth-child(4) .baoliao-rank-no{background:#d8c8a8;color:#fff}
+  .baoliao-rank-item b{flex:1;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .baoliao-rank-item em{font-style:normal;font-size:12px;color:var(--baoliao-red-dark);font-weight:700;flex-shrink:0}
+  .baoliao-quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .baoliao-quote{
+    background:#fff;border:1px solid var(--baoliao-line);border-radius:14px;padding:16px 18px;font-size:13.5px;color:#43423c;
+  }
+  .baoliao-quote-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .baoliao-quote-head .baoliao-avatar{width:30px;height:30px;font-size:13px}
+  .baoliao-quote-head b{font-size:13.5px}
+  .baoliao-quote-head span{font-size:11.5px;color:var(--baoliao-muted);margin-left:auto}
+
+  /* ===== 灵感 & 指南 ===== */
+  .baoliao-inspire-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .baoliao-inspire{border-radius:var(--baoliao-radius);padding:22px;border:1px solid var(--baoliao-line);background:#fff;transition:.25s}
+  .baoliao-inspire:hover{transform:translateY(-4px);box-shadow:var(--baoliao-shadow)}
+  .baoliao-inspire h3{font-size:16px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .baoliao-inspire h3 i{font-style:normal;font-size:18px}
+  .baoliao-inspire p{font-size:13.5px;color:var(--baoliao-muted)}
+  .baoliao-inspire-cta{margin-top:12px;font-size:12.5px;font-weight:700;color:var(--baoliao-red-dark);cursor:pointer}
+
+  /* ===== 作品墙 ===== */
+  .baoliao-wall{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+  .baoliao-wall-item{position:relative;border-radius:12px;overflow:hidden;background:#222}
+  .baoliao-wall-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .baoliao-wall-item:hover img{transform:scale(1.07)}
+  .baoliao-wall-cap{
+    position:absolute;inset:auto 0 0 0;padding:20px 12px 10px;color:#fff;font-size:12px;font-weight:600;
+    background:linear-gradient(180deg,transparent,rgba(23,24,28,.78));
+  }
+  .baoliao-wall-item--lg{grid-column:span 5;grid-row:span 2;min-height:280px}
+  .baoliao-wall-item--md{grid-column:span 4;min-height:170px}
+  .baoliao-wall-item--sm{grid-column:span 3;min-height:150px}
+
+  /* ===== FAQ ===== */
+  .baoliao-faq{max-width:860px;margin:0 auto}
+  .baoliao-faq details{
+    background:#fff;border:1px solid var(--baoliao-line);border-radius:12px;margin-bottom:10px;overflow:hidden;
+  }
+  .baoliao-faq details[open]{border-color:rgba(232,68,42,.4);box-shadow:0 8px 20px rgba(232,68,42,.07)}
+  .baoliao-faq summary{
+    padding:15px 18px;font-size:14.5px;font-weight:700;cursor:pointer;list-style:none;
+    display:flex;justify-content:space-between;align-items:center;gap:12px;
+  }
+  .baoliao-faq summary::-webkit-details-marker{display:none}
+  .baoliao-faq summary::after{content:"+";font-size:20px;color:var(--baoliao-red);font-weight:400;line-height:1}
+  .baoliao-faq details[open] summary::after{content:"−"}
+  .baoliao-faq .baoliao-faq-body{padding:0 18px 16px;font-size:13.8px;color:var(--baoliao-muted);line-height:1.72}
+
+  /* ===== 动态 ===== */
+  .baoliao-news{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .baoliao-news-item{
+    display:flex;gap:14px;background:#fff;border:1px solid var(--baoliao-line);border-radius:12px;padding:16px 18px;
+  }
+  .baoliao-news-date{
+    flex-shrink:0;width:56px;text-align:center;border-right:1px solid var(--baoliao-line);padding-right:12px;
+  }
+  .baoliao-news-date b{display:block;font-size:20px;font-weight:900;color:var(--baoliao-red-dark);line-height:1.2}
+  .baoliao-news-date span{font-size:11.5px;color:var(--baoliao-muted)}
+  .baoliao-news-item h3{font-size:14.5px;margin-bottom:4px;font-weight:700}
+  .baoliao-news-item p{font-size:12.8px;color:var(--baoliao-muted)}
+
+  /* ===== 联系/投稿 ===== */
+  .baoliao-contact{
+    background:linear-gradient(135deg,#17181c 0%,#2a2216 58%,#5a1f10 100%);
+    color:#fff;border-radius:24px;padding:52px 44px;position:relative;overflow:hidden;
+  }
+  .baoliao-contact::after{
+    content:"";position:absolute;right:-90px;top:-90px;width:320px;height:320px;border-radius:50%;
+    background:radial-gradient(circle,rgba(242,166,59,.35),transparent 68%);
+  }
+  .baoliao-contact-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;position:relative;z-index:1}
+  .baoliao-contact h2{font-size:clamp(24px,3vw,32px);margin-bottom:14px;line-height:1.3}
+  .baoliao-contact p{font-size:14.5px;color:rgba(255,255,255,.82);margin-bottom:14px}
+  .baoliao-contact-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+  .baoliao-contact-info{display:flex;flex-direction:column;gap:12px;font-size:13.5px;color:rgba(255,255,255,.86)}
+  .baoliao-contact-info div{display:flex;gap:10px;align-items:flex-start}
+  .baoliao-contact-info b{color:var(--baoliao-gold);font-weight:700;white-space:nowrap}
+
+  /* ===== 页脚 ===== */
+  .baoliao-footer{background:#111216;color:#b9b6ae;padding:54px 0 28px;font-size:13.5px}
+  .baoliao-footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:34px;margin-bottom:36px}
+  .baoliao-footer h4{color:#fff;font-size:14px;margin-bottom:14px;font-weight:800}
+  .baoliao-footer p{line-height:1.8;color:#9a978f}
+  .baoliao-footer ul li{margin-bottom:9px}
+  .baoliao-footer ul a:hover{color:var(--baoliao-gold)}
+  .baoliao-footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .baoliao-footer-brand .baoliao-logo{width:36px;height:36px;border-radius:10px}
+  .baoliao-footer-brand .baoliao-brand-name{color:#fff;font-size:17px}
+  .baoliao-footer-brand .baoliao-brand-sub{color:#7f7c74}
+  .baoliao-footer-bottom{
+    border-top:1px solid #26262c;padding-top:20px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    font-size:12.5px;color:#83807a;
+  }
+  .baoliao-footer-bottom span b{color:#a9a69e}
+
+  /* ===== 弹窗 & Toast ===== */
+  .baoliao-modal{
+    position:fixed;inset:0;background:rgba(15,15,18,.62);z-index:200;display:none;align-items:center;justify-content:center;padding:20px;
+  }
+  .baoliao-modal.is-open{display:flex}
+  .baoliao-modal-box{
+    background:var(--baoliao-paper);border-radius:18px;max-width:460px;width:100%;padding:26px;position:relative;
+    box-shadow:0 30px 70px rgba(0,0,0,.4);animation:baoliaoPop .22s ease-out;
+  }
+  @keyframes baoliaoPop{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+  .baoliao-modal-box h3{font-size:19px;margin-bottom:6px}
+  .baoliao-modal-box p.bm-desc{font-size:13.5px;color:var(--baoliao-muted);margin-bottom:16px}
+  .baoliao-modal-close{position:absolute;top:12px;right:14px;font-size:20px;color:#9a978f;line-height:1}
+  .baoliao-modal-close:hover{color:var(--baoliao-red)}
+  .baoliao-modal-box input,.baoliao-modal-box textarea{
+    width:100%;border:1px solid var(--baoliao-line);border-radius:10px;padding:10px 12px;font-size:14px;
+    font-family:inherit;background:#fff;outline:none;margin-bottom:12px;
+  }
+  .baoliao-modal-box input:focus,.baoliao-modal-box textarea:focus{border-color:var(--baoliao-red)}
+  .baoliao-share-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+  .baoliao-share-row button{
+    flex:1;min-width:86px;padding:9px 12px;border-radius:10px;background:var(--baoliao-grey);font-size:13px;font-weight:600;
+    border:1px solid var(--baoliao-line);transition:.15s;
+  }
+  .baoliao-share-row button:hover{background:var(--baoliao-red);color:#fff;border-color:var(--baoliao-red)}
+  .baoliao-toast{
+    position:fixed;left:50%;bottom:34px;transform:translate(-50%,20px);background:var(--baoliao-ink);color:#fff;
+    padding:11px 22px;border-radius:999px;font-size:13.5px;font-weight:600;opacity:0;pointer-events:none;
+    transition:.25s;z-index:300;box-shadow:0 12px 30px rgba(0,0,0,.3);
+  }
+  .baoliao-toast.is-on{opacity:1;transform:translate(-50%,0)}
+  .baoliao-topbtn{
+    position:fixed;right:20px;bottom:24px;width:46px;height:46px;border-radius:50%;background:var(--baoliao-red);color:#fff;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(232,68,42,.4);
+    opacity:0;pointer-events:none;transition:.25s;z-index:90;font-size:18px;
+  }
+  .baoliao-topbtn.is-on{opacity:1;pointer-events:auto}
+  .baoliao-topbtn:hover{background:var(--baoliao-red-dark);transform:translateY(-3px)}
+
+  /* ===== 响应式 ===== */
+  @media (max-width:1000px){
+    .baoliao-hero-grid{grid-template-columns:1fr;gap:38px}
+    .baoliao-about-grid{grid-template-columns:1fr;gap:30px}
+    .baoliao-about-card{position:static}
+    .baoliao-focus-grid{grid-template-columns:1fr}
+    .baoliao-topic-grid{grid-template-columns:repeat(2,1fr)}
+    .baoliao-creator-grid{grid-template-columns:repeat(2,1fr)}
+    .baoliao-rank-grid{grid-template-columns:1fr}
+    .baoliao-inspire-grid{grid-template-columns:1fr}
+    .baoliao-news{grid-template-columns:1fr}
+    .baoliao-contact-grid{grid-template-columns:1fr}
+    .baoliao-footer-grid{grid-template-columns:1fr 1fr;gap:26px}
+    .baoliao-quotes{grid-template-columns:1fr}
+    .baoliao-search{display:none}
+  }
+  @media (max-width:760px){
+    .baoliao-nav{
+      display:none;position:absolute;left:0;right:0;top:100%;background:#fff;flex-direction:column;
+      padding:10px 16px 16px;border-bottom:1px solid var(--baoliao-line);box-shadow:0 20px 34px rgba(23,24,28,.12);
+      gap:2px;
+    }
+    .baoliao-nav.is-open{display:flex}
+    .baoliao-header-inner{position:relative;gap:12px}
+    .baoliao-burger{display:flex}
+    .baoliao-hero-stats{grid-template-columns:1fr 1fr}
+    .baoliao-topic-grid,.baoliao-creator-grid{grid-template-columns:1fr}
+    .baoliao-wall-item--lg{grid-column:span 12;min-height:220px}
+    .baoliao-wall-item--md{grid-column:span 6;min-height:140px}
+    .baoliao-wall-item--sm{grid-column:span 6;min-height:130px}
+    .baoliao-section{padding:54px 0}
+    .baoliao-contact{padding:34px 22px;border-radius:18px}
+    .baoliao-footer-grid{grid-template-columns:1fr}
+    .baoliao-mini{grid-template-columns:110px 1fr}
+    .baoliao-notice-inner{justify-content:flex-start;padding:8px 16px}
+    .baoliao-hero-float{right:8px;bottom:-14px;padding:10px 12px;font-size:12px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    html{scroll-behavior:auto}
+  }
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="baoliao-sticky">
+  <div class="baoliao-notice">
+    <div class="baoliao-notice-inner">
+      <span class="baoliao-notice-tag">赛事公告</span>
+      <span class="baoliao-notice-text">第 47 期<strong>每日爆料大赛</strong>已于 11 月 18 日 20:00 开启报名通道，本期新增「城市夜行」赛道与 30 个入围名额。</span>
+      <a class="baoliao-notice-more" href="#baoliao-entry">查看报名规则 →</a>
+    </div>
+  </div>
+  <header class="baoliao-header">
+    <div class="baoliao-header-inner">
+      <a class="baoliao-brand" href="#top">
+        <span class="baoliao-logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M9 6l10 6-10 6z" fill="#fff"/></svg>
+        </span>
+        <span class="baoliao-brand-name">每日爆料大赛
+          <span class="baoliao-brand-sub">BAOLIAO ARENA</span>
+        </span>
+      </a>
+      <nav class="baoliao-nav" id="baoliaoNav" aria-label="主导航">
+        <a href="#top">首页</a>
+        <a href="#baoliao-focus">焦点内容</a>
+        <a href="#baoliao-topics">专题企划</a>
+        <a href="#baoliao-creators">创作者</a>
+        <a href="#baoliao-rank">榜单</a>
+        <a href="#baoliao-entry">报名入口</a>
+        <a href="#baoliao-faq">帮助</a>
+      </nav>
+      <form class="baoliao-search" id="baoliaoSearchForm" role="search">
+        <input type="text" id="baoliaoSearchInput" placeholder="搜索爆料作品 / 赛道 / 作者" aria-label="站内搜索">
+        <button type="submit">搜索</button>
+      </form>
+      <button class="baoliao-burger" id="baoliaoBurger" aria-label="展开导航" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="baoliao-search-feedback" id="baoliaoSearchFeedback" role="status"></div>
+  </header>
+</div>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="baoliao-hero">
+    <div class="baoliao-wrap baoliao-hero-grid">
+      <div>
+        <div class="baoliao-hero-badges">
+          <span class="baoliao-chip baoliao-chip--red">官方网站</span>
+          <span class="baoliao-chip">第 47 期进行中</span>
+          <span class="baoliao-chip">原创 · 正版 · 高清</span>
+        </div>
+        <h1>每日爆料大赛入口</h1>
+        <p class="baoliao-hero-lead">
+          这里是「每日爆料大赛」的品牌官网，也是一个持续运营的原创影像爆料社区。我们把每一天真实发生的片段，变成一条条有证据、有叙述、有温度的短片，让普通人的观察拥有被看见的位置。作为深耕爆料影像垂直领域的品牌平台，我们相信：真实本身就是力量。
+        </p>
+        <div class="baoliao-hero-actions">
+          <a class="baoliao-btn baoliao-btn--solid" href="#baoliao-entry">进入报名入口</a>
+          <a class="baoliao-btn baoliao-btn--ghost" href="#baoliao-focus">看看本期内容</a>
+          <button class="baoliao-btn baoliao-btn--ghost" data-baoliao-share>分享给朋友</button>
+        </div>
+        <div class="baoliao-stats">
+          <div class="baoliao-stat"><b data-baoliao-count="186">186</b><span>已开赛期数</span></div>
+          <div class="baoliao-stat"><b data-baoliao-count="12480">12,480</b><span>累计参赛作品</span></div>
+          <div class="baoliao-stat"><b data-baoliao-count="36">36</b><span>合作城市站点</span></div>
+        </div>
+      </div>
+      <div class="baoliao-hero-visual">
+        <div class="baoliao-hero-card">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 400'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23fb5a35'/%3E%3Cstop offset='1' stop-color='%23f2a63b'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='640' height='400' fill='%2317181c'/%3E%3Ccircle cx='520' cy='90' r='120' fill='url(%23g1)' opacity='.55'/%3E%3Ccircle cx='120' cy='330' r='150' fill='%23f2a63b' opacity='.22'/%3E%3Cpath d='M0 300 L170 190 L300 260 L440 140 L640 250 L640 400 L0 400 Z' fill='%232c2a26'/%3E%3Cpath d='M0 340 L190 250 L330 310 L470 210 L640 300 L640 400 L0 400 Z' fill='%233c362c'/%3E%3Crect x='70' y='70' width='150' height='96' rx='8' fill='%23ffffff' opacity='.1'/%3E%3Crect x='88' y='92' width='60' height='6' rx='3' fill='%23f2a63b'/%3E%3Crect x='88' y='110' width='110' height='5' rx='2.5' fill='%23ffffff' opacity='.62'/%3E%3Crect x='88' y='126' width='86' height='5' rx='2.5' fill='%23ffffff' opacity='.4'/%3E%3Ccircle cx='538' cy='286' r='34' fill='%23ffffff' opacity='.9'/%3E%3Cpath d='M530 272 L552 286 L530 300 Z' fill='%23e8442a'/%3E%3C/svg%3E" alt="每日爆料大赛第47期主视觉：夜色城市里的观察镜头">
+          <div class="baoliao-hero-caption">
+            <div>
+              <strong>本期主题 · 城市夜行</strong>
+              <small>记录凌晨之后的街道与人群</small>
+            </div>
+            <span style="display:flex;align-items:center;font-size:12.5px;font-weight:700;color:#c22f18"><span class="baoliao-live-dot"></span>报名中</span>
+          </div>
+        </div>
+        <div class="baoliao-hero-float">
+          <b>47</b>
+          <span>期赛事实时排行<br>已有 1,286 人报名</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 深度解析 -->
+  <section class="baoliao-section baoliao-section--tint" id="baoliao-about">
+    <div class="baoliao-wrap">
+      <div class="baoliao-sec-head">
+        <div class="baoliao-kicker">品牌故事 · 深度解析</div>
+        <h2>一个持续运营的爆料影像社区，凭什么值得信赖</h2>
+        <p>从一条 90 秒的街头短片开始，我们用了 186 期时间，把「爆料」变成一门讲证据、讲叙事、讲尊重的手艺。</p>
+      </div>
+      <div class="baoliao-about-grid">
+        <aside class="baoliao-about-card">
+          <h3>企业档案</h3>
+          <p>「每日爆料大赛」由一家专注纪实影像的内容企业发起并持续运营，品牌主张是让真实线索被认真对待。</p>
+          <ul>
+            <li><b>定位</b><span>爆料影像垂直领域的内容平台与赛事社区</span></li>
+            <li><b>使命</b><span>为普通观察者提供专业、正版、可被核验的表达通道</span></li>
+            <li><b>方法</b><span>赛事机制 + 创作者矩阵 + 审核规范 + 精品内容运营</span></li>
+            <li><b>规模</b><span>36 个城市站点，480 余位签约与入驻创作者</span></li>
+            <li><b>原则</b><span>用户至上、真实优先、尊重当事人</span></li>
+          </ul>
+        </aside>
+        <div class="baoliao-about-body">
+          <p>很多人第一次听说<b>每日爆料大赛入口</b>，是在某个深夜刷到一条竖屏短片：拍摄者举着手电，拍下一条被雨水冲开的井盖，画外音只有一句话——“这里每天都有人摔跤”。短片不到两分钟，却让人记住了那条街。这正是我们希望保留的质感：具体、克制、有现场。</p>
+          <h3>为什么需要一个"入口"</h3>
+          <p>爆料从来不缺素材，缺的是把素材变成作品的方法。我们把这套方法做成一个公开的入口：任何人都可以从官网进入赛题页面，看到当期的主题、评审维度、时长限制、素材规范与发布节奏。入口背后是三条明确的标准——<strong>事实可核验</strong>、<strong>叙事有结构</strong>、<strong>表达有分寸</strong>。通过这三条标准筛选出来的内容，才会进入焦点推荐、专题企划与城市榜单。</p>
+          <p>作为一家持续运营的影像企业，我们不追求一次性爆点。社区里的作品会按主题归档，按地域打标，并在每年年末整合成一份城市影像年鉴。对创作者而言，这是作品被长期看见的机会；对观众而言，这是对一个话题持续追踪的可能；对品牌与合作方而言，这是一份可被引用的真实内容资产。</p>
+          <h3>专业从流程开始</h3>
+          <p>每天 10:00，编辑团队会公布当日的选题线索与素材回收情况；14:00 完成初审，确认画面合规、信息完整；20:00 更新榜单与推荐位。每周三举办一次线上复盘，由资深创作者拆解上周的高分作品，讲清一个转场、一段同期声、一次现场等待是怎么被处理好的。这些复盘会以短视频形式保留在站内，形成可以被反复学习的<strong>精品内容</strong>库。</p>
+          <p>我们对创作者的扶持也写进了常规机制：新入驻作者会获得一次选题辅导，首条作品过审即进入新人榜，前 30 天享受流量倾斜；连续三期进入口碑榜的作者可以申请创作基金；城市站每年举办两场线下采风，报名信息统一通过官方渠道发布。我们希望通过稳定的机制，让创作这件事不依赖运气。</p>
+          <h3>社区、生态与边界</h3>
+          <p>一个健康的<strong>内容生态</strong>，离不开边界。对于涉及未成年人、医疗场所、私人住宅与未定性事件的内容，我们要求打码、变声或延后发布；对于无法核实的传言，我们不会把它放进推荐位。审核团队会在 24 小时内回应作者的申诉，并把有争议的判断写进季度公开报告。这不是为了显得严格，而是为了让每一位被拍摄者都能被当作具体的、有尊严的人来对待。</p>
+          <p>从 2021 年第一期到今天，每日爆料大赛入口已经从一个小型投稿活动，成长为拥有赛事、创作者社区、影像档案与线下活动的品牌平台。我们依然保持最初的习惯：每天清晨翻一遍昨日提交的素材，找出那个最打动人的 90 秒。因为对真实影像来说，最重要的从来不是音量，而是耐心。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 焦点内容 -->
+  <section class="baoliao-section" id="baoliao-focus">
+    <div class="baoliao-wrap">
+      <div class="baoliao-sec-head">
+        <div class="baoliao-kicker">焦点内容 · 本期精选</div>
+        <h2>本期被反复回看的 6 条爆料影像</h2>
+        <p>由编辑团队与城市观察员共同推选，涵盖城市探索、日常记录、实用技巧与人物访谈四个方向。</p>
+      </div>
+      <div class="baoliao-focus-grid" id="baoliaoFocusGrid">
+        <article class="baoliao-card" data-baoliao-keywords="城市夜行 凌晨 便利店 夜班">
+          <div class="baoliao-thumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Cdefs%3E%3ClinearGradient id='n1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23111a2b'/%3E%3Cstop offset='1' stop-color='%2332405c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='640' height='360' fill='url(%23n1)'/%3E%3Crect x='0' y='250' width='640' height='110' fill='%23141b26'/%3E%3Crect x='90' y='120' width='180' height='130' fill='%23222e42'/%3E%3Crect x='110' y='140' width='60' height='40' fill='%23f7d98b' opacity='.85'/%3E%3Crect x='190' y='140' width='60' height='40' fill='%23f7d98b' opacity='.55'/%3E%3Crect x='110' y='196' width='140' height='30' fill='%234e5f7d'/%3E%3Ccircle cx='480' cy='90' r='26' fill='%23f7e6bd' opacity='.8'/%3E%3Cpath d='M0 300 L640 300' stroke='%23f2a63b' stroke-width='3' opacity='.6'/%3E%3Crect x='330' y='240' width='6' height='60' fill='%23a9b3c4'/%3E%3Ccircle cx='333' cy='238' r='14' fill='%23f7d98b' opacity='.85'/%3E%3C/svg%3E" alt="凌晨便利店夜班店员对话的爆料短片封面">
+            <div class="baoliao-thumb-overlay"></div>
+            <span class="baoliao-thumb-tag">城市夜行</span>
+            <span class="baoliao-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></svg></span>
+            <span class="baoliao-thumb-meta">时长 03:42 · 高清</span>
+          </div>
+          <div class="baoliao-card-body">
+            <h3>凌晨三点的便利店，夜班店员讲了他记住的 7 种客人</h3>
+            <p>拍摄者连续五晚蹲守一间街角便利店，用同期声串起夜班店员的口述，没有配乐，只有冰柜的嗡鸣与自动门的提示音。</p>
+            <div class="baoliao-card-meta">
+              <span class="baoliao-author"><span class="baoliao-avatar" style="background:#e8442a">蒋</span>蒋照面</span>
+              <div class="baoliao-actions">
+                <button class="baoliao-like" data-baoliao-like="3286"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9-9a5 5 0 019-3 5 5 0 019 3c-2 4.5-9 9-9 9z"/></svg><span>3,286</span></button>
+              </div>
+            </div>
+          </div>
+        </article>
+        <div class="baoliao-focus-side">
+          <article class="baoliao-card baoliao-mini" data-baoliao-keywords="地铁 末班车 通勤 城市">
+            <div class="baoliao-thumb">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 200'%3E%3Crect width='320' height='200' fill='%23eaeeef'/%3E%3Crect x='0' y='140' width='320' height='60' fill='%23c8d0d4'/%3E%3Crect x='40' y='40' width='240' height='80' rx='8' fill='%23374a5a'/%3E%3Crect x='54' y='54' width='60' height='40' fill='%23dbe6ea'/%3E%3Crect x='126' y='54' width='60' height='40' fill='%23dbe6ea'/%3E%3Crect x='198' y='54' width='60' height='40' fill='%23dbe6ea'/%3E%3Ccircle cx='70' cy='160' r='16' fill='%232b3540'/%3E%3Ccircle cx='250' cy='160' r='16' fill='%232b3540'/%3E%3C/svg%3E" alt="地铁末班车乘客通勤讲述封面">
+              <div class="baoliao-thumb-overlay"></div>
+              <span class="baoliao-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></svg></span>
+            </div>
+            <div class="baoliao-mini-info">
+              <h4>末班车上的 14 分钟，陌生人聊了各自的加班理由</h4>
+              <span>林间取景 · 02:18 · 日常记录</span>
+            </div>
+          </article>
+          <article class="baoliao-card baoliao-mini" data-baoliao-keywords="菜市场 摊主 采访 物价">
+            <div class="baoliao-thumb">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 200'%3E%3Crect width='320' height='200' fill='%23f6efe3'/%3E%3Crect x='0' y='130' width='320' height='70' fill='%23d9c7a8'/%3E%3Crect x='30' y='60' width='80' height='70' rx='6' fill='%234b7a4e'/%3E%3Crect x='124' y='70' width='76' height='60' rx='6' fill='%23c9532e'/%3E%3Crect x='214' y='54' width='80' height='76' rx='6' fill='%23e0a92f'/%3E%3Ccircle cx='70' cy='46' r='18' fill='%23e8c39a'/%3E%3Ccircle cx='256' cy='40' r='18' fill='%23e8c39a'/%3E%3C/svg%3E" alt="菜市场摊主聊当日物价的采访封面">
+              <div class="baoliao-thumb-overlay"></div>
+              <span class="baoliao-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></svg></span>
+            </div>
+            <div class="baoliao-mini-info">
+              <h4>一位卖菜 22 年的摊主，手写账本里的物价变化</h4>
+              <span>谢小满 · 04:05 · 人物访谈</span>
+            </div>
+          </article>
+          <article class="baoliao-card baoliao-mini" data-baoliao-keywords="拍摄 技巧 教程 手机">
+            <div class="baoliao-thumb">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 200'%3E%3Crect width='320' height='200' fill='%231b1d24'/%3E%3Ccircle cx='160' cy='100' r='54' fill='none' stroke='%23e8442a' stroke-width='6'/%3E%3Ccircle cx='160' cy='100' r='30' fill='%23f2a63b' opacity='.8'/%3E%3Crect x='20' y='20' width='60' height='8' rx='4' fill='%23ffffff' opacity='.2'/%3E%3Crect x='20' y='38' width='90' height='8' rx='4' fill='%23ffffff' opacity='.12'/%3E%3Crect x='20' y='56' width='44' height='8' rx='4' fill='%23ffffff' opacity='.2'/%3E%3C/svg%3E" alt="手机夜景爆料拍摄实操教程封面">
+              <div class="baoliao-thumb-overlay"></div>
+              <span class="baoliao-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></svg></span>
+            </div>
+            <div class="baoliao-mini-info">
+              <h4>只用手机拍夜景爆料：稳住画面的 5 个土办法</h4>
+              <span>老周拆解 · 06:40 · 实用技巧</span>
+            </div>
+          </article>
+          <article class="baoliao-card baoliao-mini" data-baoliao-keywords="拆迁 老街 在地文化 记录">
+            <div class="baoliao-thumb">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 200'%3E%3Crect width='320' height='200' fill='%23e9e2d4'/%3E%3Crect x='0' y='150' width='320' height='50' fill='%23cbbfa8'/%3E%3Crect x='24' y='70' width='90' height='80' fill='%23a89a80'/%3E%3Crect x='128' y='50' width='70' height='100' fill='%23887c66'/%3E%3Crect x='212' y='84' width='84' height='66' fill='%23b6a88d'/%3E%3Crect x='40' y='88' width='20' height='24' fill='%23efe4cc'/%3E%3Crect x='146' y='70' width='20' height='24' fill='%23efe4cc'/%3E%3Crect x='238' y='102' width='18' height='22' fill='%23efe4cc'/%3E%3C/svg%3E" alt="即将改造的老街巷口影像封面">
+              <div class="baoliao-thumb-overlay"></div>
+              <span class="baoliao-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></svg></span>
+            </div>
+            <div class="baoliao-mini-info">
+              <h4>拆之前，我们把这条巷子的 38 扇门拍了一遍</h4>
+              <span>拾巷 · 05:12 · 在地文化</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 专题企划 -->
+  <section class="baoliao-section baoliao-section--tint" id="baoliao-topics">
+    <div class="baoliao-wrap">
+      <div class="baoliao-sec-head">
+        <div class="baoliao-kicker">专题企划 · 连续追踪</div>
+        <h2>4 个正在更新的爆料专题</h2>
+        <p>每个专题都由固定编辑对接，按周更新进展，报名信息与选题清单统一在专题页发布。</p>
+      </div>
+      <div class="baoliao-topic-grid">
+        <article class="baoliao-topic" data-baoliao-keywords="夜行 城市 专题">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%230f1622'/%3E%3Ccircle cx='360' cy='70' r='40' fill='%23f7e6bd' opacity='.85'/%3E%3Cpath d='M0 210 L120 140 L220 190 L320 120 L480 200 L480 270 L0 270 Z' fill='%231d2634'/%3E%3Crect x='60' y='150' width='10' height='70' fill='%23415168'/%3E%3Ccircle cx='65' cy='148' r='16' fill='%23f2a63b' opacity='.9'/%3E%3Crect x='210' y='160' width='10' height='60' fill='%23415168'/%3E%3Ccircle cx='215' cy='158' r='16' fill='%23f2a63b' opacity='.8'/%3E%3Crect x='380' y='150' width='10' height='70' fill='%23415168'/%3E%3Ccircle cx='385' cy='148' r='16' fill='%23f2a63b' opacity='.75'/%3E%3C/svg%3E" alt="城市夜行专题：街灯下拉长的影子的封面">
+          <div class="baoliao-topic-body">
+            <span class="baoliao-status">更新中 · 第 4 周</span>
+            <h3>城市夜行：凌晨之后的 10 种职业</h3>
+            <p>跟拍夜班护士、代驾、便利店店员、清运工与夜市摊主，记录城市在大多数人睡着之后仍在运转的部分。</p>
+            <span class="baoliao-topic-link">进入专题 →</span>
+          </div>
+        </article>
+        <article class="baoliao-topic" data-baoliao-keywords="邻里 社区 日常 记录">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23eef1ea'/%3E%3Crect x='0' y='190' width='480' height='80' fill='%23c6d0c1'/%3E%3Crect x='40' y='80' width='130' height='110' fill='%237c9a7a'/%3E%3Crect x='190' y='100' width='110' height='90' fill='%239bb29a'/%3E%3Crect x='320' y='60' width='120' height='130' fill='%235e7c5e'/%3E%3Crect x='60' y='104' width='26' height='30' fill='%23f0e8d4'/%3E%3Crect x='110' y='104' width='26' height='30' fill='%23f0e8d4'/%3E%3Crect x='210' y='124' width='26' height='30' fill='%23f0e8d4'/%3E%3Crect x='348' y='86' width='26' height='30' fill='%23f0e8d4'/%3E%3Ccircle cx='270' cy='226' r='18' fill='%23e8c39a'/%3E%3Cpath d='M252 270 L270 244 L288 270 Z' fill='%23c9532e'/%3E%3C/svg%3E" alt="老楼邻里口述史专题：楼间晾衣绳的封面">
+          <div class="baoliao-topic-body">
+            <span class="baoliao-status">更新中 · 已有 26 条</span>
+            <h3>同一栋楼的 40 年：邻里口述史</h3>
+            <p>邀请居民对着镜头讲一件楼里的旧事，从加装电梯到楼道里的第一台冰箱，拼出一条微观的居住变迁线。</p>
+            <span class="baoliao-topic-link">进入专题 →</span>
+          </div>
+        </article>
+        <article class="baoliao-topic" data-baoliao-keywords="小生意 店铺 商业观察">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23f5eee2'/%3E%3Crect x='0' y='200' width='480' height='70' fill='%23ddcdb2'/%3E%3Crect x='60' y='90' width='360' height='110' rx='6' fill='%23b95a37'/%3E%3Crect x='80' y='110' width='100' height='70' fill='%23f7e6bd'/%3E%3Crect x='200' y='110' width='60' height='70' fill='%23f7e6bd'/%3E%3Crect x='280' y='110' width='60' height='70' fill='%23f7e6bd'/%3E%3Crect x='360' y='110' width='40' height='70' fill='%23f7e6bd'/%3E%3Cpath d='M40 90 L80 52 L400 52 L440 90 Z' fill='%238a3f24'/%3E%3Crect x='138' y='126' width='20' height='54' fill='%23b95a37'/%3E%3C/svg%3E" alt="街边小生意账本专题：临街店面的封面">
+          <div class="baoliao-topic-body">
+            <span class="baoliao-status baoliao-status--done">已完结 · 共 12 集</span>
+            <h3>一家小店的账本：12 位店主的一年</h3>
+            <p>用镜头记录小店的开门与关门、进货与清仓，谈租金、谈客流、谈那些撑住和没撑住的月份。</p>
+            <span class="baoliao-topic-link">查看全集 →</span>
+          </div>
+        </article>
+        <article class="baoliao-topic" data-baoliao-keywords="新创作者 挑战 攻略">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23241d1a'/%3E%3Crect x='70' y='50' width='340' height='170' rx='14' fill='%2339302a'/%3E%3Crect x='110' y='86' width='180' height='14' rx='7' fill='%23e8442a'/%3E%3Crect x='110' y='116' width='240' height='10' rx='5' fill='%23ffffff' opacity='.35'/%3E%3Crect x='110' y='138' width='200' height='10' rx='5' fill='%23ffffff' opacity='.22'/%3E%3Crect x='110' y='160' width='150' height='10' rx='5' fill='%23ffffff' opacity='.16'/%3E%3Ccircle cx='384' cy='186' r='26' fill='%23f2a63b'/%3E%3Cpath d='M376 176 L396 186 L376 196 Z' fill='%23241d1a'/%3E%3C/svg%3E" alt="新人挑战赛专题：创作任务卡的封面">
+          <div class="baoliao-topic-body">
+            <span class="baoliao-status">可报名 · 剩余 30 席</span>
+            <h3>新人第一条爆料：7 天创作挑战</h3>
+            <p>为首次参赛者设计的入门企划，提供选题模板、拍摄清单与剪辑思路，完成后可获得一次编辑一对一点评。</p>
+            <span class="baoliao-topic-link">查看规则 →</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 创作者矩阵 -->
+  <section class="baoliao-section" id="baoliao-creators">
+    <div class="baoliao-wrap">
+      <div class="baoliao-sec-head">
+        <div class="baoliao-kicker">创作者矩阵 · 内容生态</div>
+        <h2>在这个社区里持续输出的人</h2>
+        <p>他们中有做了 9 年纪录片的老手，也有第一次拿起手机拍街角的普通人。官方为每一位入驻创作者提供选题辅导与发布支持。</p>
+      </div>
+      <div class="baoliao-creator-grid">
+        <article class="baoliao-creator">
+          <span class="baoliao-avatar" style="background:#e8442a">蒋</span>
+          <h3>蒋照面</h3>
+          <div class="baoliao-role">城市观察 / 长镜头</div>
+          <p>擅长在固定机位里等待，一条街能拍三晚。作品多次进入年度口碑榜，主张“先站住，再开口”。</p>
+          <div class="baoliao-creator-stats">
+            <span><b>128</b>作品</span>
+            <span><b>9.6万</b>关注</span>
+          </div>
+          <button class="baoliao-creator-btn" data-baoliao-author="蒋照面|城市观察 / 长镜头|他是「凌晨便利店」系列的作者，习惯在同一个位置守候三到五个夜晚。已连续 12 期参赛，作品被收录进《城市夜行》专题。">查看档案</button>
+        </article>
+        <article class="baoliao-creator">
+          <span class="baoliao-avatar" style="background:#3f6f8f">林</span>
+          <h3>林间取景</h3>
+          <div class="baoliao-role">日常记录 / 同期声</div>
+          <p>地铁、菜市场与楼道口是他的主场。坚持不用旁白，让现场的声音自己说话。</p>
+          <div class="baoliao-creator-stats">
+            <span><b>86</b>作品</span>
+            <span><b>6.2万</b>关注</span>
+          </div>
+          <button class="baoliao-creator-btn" data-baoliao-author="林间取景|日常记录 / 同期声|他的《末班车上的 14 分钟》是本期播放量最高的作品之一。擅长在拥挤场景里找到安静的一角。">查看档案</button>
+        </article>
+        <article class="baoliao-creator">
+          <span class="baoliao-avatar" style="background:#8a6a2f">谢</span>
+          <h3>谢小满</h3>
+          <div class="baoliao-role">人物访谈 / 手写物证</div>
+          <p>喜欢用手写账本、票据和旧照片作为证据链，让访谈有可翻查的细节。</p>
+          <div class="baoliao-creator-stats">
+            <span><b>54</b>作品</span>
+            <span><b>4.8万</b>关注</span>
+          </div>
+          <button class="baoliao-creator-btn" data-baoliao-author="谢小满|人物访谈 / 手写物证|她把镜头对准摊主、店员和守门人，擅长从一张单据讲出一整年的时间。">查看档案</button>
+        </article>
+        <article class="baoliao-creator">
+          <span class="baoliao-avatar" style="background:#4b7a4e">老</span>
+          <h3>老周拆解</h3>
+          <div class="baoliao-role">实用技巧 / 器材教学</div>
+          <p>做剪辑教学 6 年，拆解过 300 多条参赛作品，讲得最多的一句话是“先保证信息清楚”。</p>
+          <div class="baoliao-creator-stats">
+            <span><b>210</b>作品</span>
+            <span><b>12.4万</b>关注</span>
+          </div>
+          <button class="baoliao-creator-btn" data-baoliao-author="老周拆解|实用技巧 / 器材教学|他的手机拍摄系列是新人必看内容，累计帮助超过 4000 位作者完成第一条参赛作品。">查看档案</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 榜单 + 评价 -->
+  <section class="baoliao-section baoliao-section--tint" id="baoliao-rank">
+    <div class="baoliao-wrap">
+      <div class="baoliao-sec-head">
+        <div class="baoliao-kicker">数据榜单 · 社区口碑</div>
+        <h2>第 47 期热度榜与真实反馈</h2>
+        <p>榜单每 4 小时更新一次，综合播放、收藏、评论与编辑推荐权重。口碑区内容来自社区成员的真实留言。</p>
+      </div>
+      <div class="baoliao-rank-grid">
+        <div>
+          <div class="baoliao-rank" style="margin-bottom:16px">
+            <div class="baoliao-rank-title">本期热度榜 <span>每 4 小时更新</span></div>
+            <div class="baoliao-rank-item"><span class="baoliao-rank-no">1</span><b>凌晨三点的便利店，夜班店员讲了他记住的 7 种客人</b><em>9.8万</em></div>
+            <div class="baoliao-rank-item"><span class="baoliao-rank-no">2</span><b>拆之前，我们把这条巷子的 38 扇门拍了一遍</b><em>8.4万</em></div>
+            <div class="baoliao-rank-item"><span class="baoliao-rank-no">3</span><b>一位卖菜 22 年的摊主，手写账本里的物价变化</b><em>7.6万</em></div>
+            <div class="baoliao-rank-item"><span class="baoliao-rank-no">4</span><b>只用手机拍夜景爆料：稳住画面的 5 个土办法</b><em>6.9万</em></div>
+            <div class="baoliao-rank-item"><span class="baoliao-rank-no">5</span><b>末班车上的 14 分钟，陌生人聊了各自的加班理由</b><em>6.1万</em></div>
+          </div>
+          <div class="baoliao-rank">
+            <div class="baoliao-rank-title">新人榜 <span>入驻 30 天内</span></div>
+            <div class="baoliao-rank-item"><span class="baoliao-rank-no">1</span><b>雨天井盖：我用三脚架守了 40 分钟</b><em>2.3万</em></div>
+            <div class="baoliao-rank-item"><span class="baoliao-rank-no">2</span><b>小区门口的修表摊，一天只来三个人</b><em>1.8万</em></div>
+            <div class="baoliao-rank-item"><span class="baoliao-rank-no">3</span><b>早班公交司机的第一杯水</b><em>1.5万</em></div>
+          </div>
+        </div>
+        <div class="baoliao-quotes">
+          <div class="baoliao-quote">
+            <div class="baoliao-quote-head"><span class="baoliao-avatar" style="background:#c9532e">何</span><b>何雨停</b><span>参赛者</span></div>
+            第一次投稿就被编辑指出了收音问题，点评很细，连备用机位都建议了。这种反馈比点赞有用多了。
+          </div>
+          <div class="baoliao-quote">
+            <div class="baoliao-quote-head"><span class="baoliao-avatar" style="background:#3f6f8f">安</span><b>安河桥北</b><span>观众</span></div>
+            每晚睡前刷两三条，看的是别人的城市，想的是自己楼下的那条街。节奏很舒服，不吵。
+          </div>
+          <div class="baoliao-quote">
+            <div class="baoliao-quote-head"><span class="baoliao-avatar" style="background:#4b7a4e">周</span><b>周师傅</b><span>社区成员</span></div>
+            我关注的是他们的审核尺度，涉及隐私的内容处理得比较谨慎，这点在同类社区里不多见。
+          </div>
+          <div class="baoliao-quote">
+            <div class="baoliao-quote-head"><span class="baoliao-avatar" style="background:#8a6a2f">禾</span><b>禾木木</b><span>创作者</span></div>
+            从报名入口到发布只用了三天，流程清楚，规则写得明白，不像有些比赛要猜评审口味。
+          </div>
+          <div class="baoliao-quote">
+            <div class="baoliao-quote-head"><span class="baoliao-avatar" style="background:#7a4a8a">沈</span><b>沈叙白</b><span>观众</span></div>
+            专题做得挺扎实，一个话题能追几个月，不是发一条就散的那种。
+          </div>
+          <div class="baoliao-quote">
+            <div class="baoliao-quote-head"><span class="baoliao-avatar" style="background:#e8442a">单</span><b>单纯记录</b><span>参赛者</span></div>
+            城市站的线下采风我去了两次，认识了一群同样喜欢拍街角的人，现在每周都约着出门。
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 灵感 & 指南 -->
+  <section class="baoliao-section" id="baoliao-inspire">
+    <div class="baoliao-wrap">
+      <div class="baoliao-sec-head">
+        <div class="baoliao-kicker">创作灵感 · 实用指南</div>
+        <h2>不知道从哪拍起？这里有三条起点</h2>
+        <p>官方整理的选题思路、剪辑建议与投稿流程说明，帮助你把一次偶然的观察，做成一条完整的爆料作品。</p>
+      </div>
+      <div class="baoliao-inspire-grid">
+        <div class="baoliao-inspire">
+          <h3><i>◈</i>选题灵感卡</h3>
+          <p>从“我每天都会经过，但从来没停下来过”的地方开始。比如楼下那家换了三次招牌的店、总在固定时间出现的收废品车、下雨就积水的路口。写清三件事：谁、什么时候、为什么值得被记录。</p>
+          <div class="baoliao-inspire-cta" data-baoliao-author="选题灵感卡|官方编辑整理|建议先列一张时间表，把观察周期定为 3 到 5 天，再决定用横屏还是竖屏。多数高分作品的素材量是成片时长的 6 到 10 倍。">查看完整清单 →</div>
+        </div>
+        <div class="baoliao-inspire">
+          <h3><i>✎</i>标题与结构</h3>
+          <p>标题里放一个具体数字或时间点，比抽象形容词更有说服力。结构推荐“现场一秒切入 + 一段背景交代 + 一处具体细节 + 一个留白收尾”，90 秒内完成，不要试图讲完所有事。</p>
+          <div class="baoliao-inspire-cta" data-baoliao-author="标题与结构|官方编辑整理|本期被推荐的 6 条内容中，有 5 条在开头 3 秒内直接给出了画面证据，而不是自我介绍。">参考往期拆解 →</div>
+        </div>
+        <div class="baoliao-inspire">
+          <h3><i>➤</i>投稿与审核</h3>
+          <p>通过官网报名入口提交报名信息与作品链接，24 小时内会收到初审结果。涉及他人面部、住址、车牌的内容请先做处理；未成年人相关内容需监护人同意。审核意见会逐条回复，不接受私下拉票。</p>
+          <div class="baoliao-inspire-cta" data-baoliao-author="投稿与审核|赛事运营组|若作品被判定信息不足，可在 7 天内补充素材再次提交，补充次数不计入当期参赛次数。">查看投稿须知 →</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 作品墙 -->
+  <section class="baoliao-section baoliao-section--tint" id="baoliao-wall">
+    <div class="baoliao-wrap">
+      <div class="baoliao-sec-head">
+        <div class="baoliao-kicker">影像墙 · 社区作品</div>
+        <h2>来自 36 个城市站的观察切片</h2>
+        <p>每一格都对应一条已发布作品，点击可查看作者与拍摄手记。</p>
+      </div>
+      <div class="baoliao-wall">
+        <div class="baoliao-wall-item baoliao-wall-item--lg">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23131a24'/%3E%3Ccircle cx='470' cy='90' r='54' fill='%23f7e6bd' opacity='.8'/%3E%3Cpath d='M0 300 L130 200 L260 270 L380 180 L600 290 L600 400 L0 400 Z' fill='%23233042'/%3E%3Crect x='80' y='260' width='14' height='120' fill='%234b5d78'/%3E%3Ccircle cx='87' cy='256' r='22' fill='%23f2a63b' opacity='.9'/%3E%3Crect x='290' y='250' width='14' height='130' fill='%234b5d78'/%3E%3Ccircle cx='297' cy='246' r='22' fill='%23f2a63b' opacity='.8'/%3E%3Crect x='470' y='262' width='14' height='118' fill='%234b5d78'/%3E%3Ccircle cx='477' cy='258' r='22' fill='%23f2a63b' opacity='.7'/%3E%3C/svg%3E" alt="城市夜行作品墙：三重街灯下的空旷马路">
+          <div class="baoliao-wall-cap">路灯下的第四个小时 · 蒋照面</div>
+        </div>
+        <div class="baoliao-wall-item baoliao-wall-item--md">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 220'%3E%3Crect width='400' height='220' fill='%23f0ebe0'/%3E%3Crect x='0' y='150' width='400' height='70' fill='%23cfc3ac'/%3E%3Crect x='40' y='70' width='100' height='80' fill='%238a7c62'/%3E%3Crect x='160' y='50' width='80' height='100' fill='%236c5f4a'/%3E%3Crect x='260' y='90' width='100' height='60' fill='%23a2937a'/%3E%3Crect x='56' y='86' width='20' height='24' fill='%23efe4cc'/%3E%3Crect x='176' y='66' width='20' height='24' fill='%23efe4cc'/%3E%3Crect x='278' y='104' width='20' height='22' fill='%23efe4cc'/%3E%3C/svg%3E" alt="作品墙：老楼外立面与斑驳墙面">
+          <div class="baoliao-wall-cap">第 38 扇门 · 拾巷</div>
+        </div>
+        <div class="baoliao-wall-item baoliao-wall-item--sm">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%23e9f0ea'/%3E%3Crect x='0' y='140' width='300' height='60' fill='%23b9cbb9'/%3E%3Crect x='30' y='50' width='70' height='90' rx='6' fill='%234b7a4e'/%3E%3Crect x='120' y='68' width='60' height='72' rx='6' fill='%23c9532e'/%3E%3Crect x='200' y='40' width='70' height='100' rx='6' fill='%23e0a92f'/%3E%3Ccircle cx='65' cy='34' r='14' fill='%23e8c39a'/%3E%3C/svg%3E" alt="作品墙：菜市场三个摊位的色块对比">
+          <div class="baoliao-wall-cap">今日菜价 · 谢小满</div>
+        </div>
+        <div class="baoliao-wall-item baoliao-wall-item--md">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 220'%3E%3Crect width='400' height='220' fill='%23232429'/%3E%3Ccircle cx='200' cy='110' r='62' fill='none' stroke='%23e8442a' stroke-width='5'/%3E%3Ccircle cx='200' cy='110' r='34' fill='%23f2a63b' opacity='.85'/%3E%3Crect x='30' y='30' width='70' height='8' rx='4' fill='%23ffffff' opacity='.18'/%3E%3Crect x='30' y='48' width='110' height='8' rx='4' fill='%23ffffff' opacity='.1'/%3E%3Crect x='300' y='170' width='70' height='8' rx='4' fill='%23ffffff' opacity='.18'/%3E%3C/svg%3E" alt="作品墙：手机镜头取景框内的光圈示意">
+          <div class="baoliao-wall-cap">夜景对焦练习 · 老周拆解</div>
+        </div>
+        <div class="baoliao-wall-item baoliao-wall-item--sm">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%23e4ecf1'/%3E%3Crect x='0' y='130' width='300' height='70' fill='%23b9c7d1'/%3E%3Crect x='60' y='40' width='180' height='90' rx='10' fill='%23374a5a'/%3E%3Crect x='76' y='56' width='50' height='34' fill='%23dbe6ea'/%3E%3Crect x='136' y='56' width='50' height='34' fill='%23dbe6ea'/%3E%3Crect x='196' y='56' width='30' height='34' fill='%23dbe6ea'/%3E%3Ccircle cx='90' cy='150' r='14' fill='%232b3540'/%3E%3Ccircle cx='210' cy='150' r='14' fill='%232b3540'/%3E%3C/svg%3E" alt="作品墙：末班车车厢内的座位视角">
+          <div class="baoliao-wall-cap">14 分钟 · 林间取景</div>
+        </div>
+        <div class="baoliao-wall-item baoliao-wall-item--sm">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%23221c18'/%3E%3Crect x='40' y='40' width='220' height='120' rx='12' fill='%2339302a'/%3E%3Crect x='66' y='70' width='120' height='12' rx='6' fill='%23e8442a'/%3E%3Crect x='66' y='94' width='160' height='8' rx='4' fill='%23ffffff' opacity='.35'/%3E%3Crect x='66' y='112' width='130' height='8' rx='4' fill='%23ffffff' opacity='.2'/%3E%3Ccircle cx='228' cy='132' r='20' fill='%23f2a63b'/%3E%3C/svg%3E" alt="作品墙：创作任务卡的深色界面">
+          <div class="baoliao-wall-cap">7 天挑战第一日 · 禾木木</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 赛事动态 -->
+  <section class="baoliao-section" id="baoliao-news">
+    <div class="baoliao-wrap">
+      <div class="baoliao-sec-head">
+        <div class="baoliao-kicker">企业动态 · 官方发布</div>
+        <h2>最近的内容更新与赛事安排</h2>
+        <p>所有官方信息只通过本官网与认证账号发布，请注意核对来源。</p>
+      </div>
+      <div class="baoliao-news">
+        <div class="baoliao-news-item">
+          <div class="baoliao-news-date"><b>18</b><span>11 月</span></div>
+          <div>
+            <h3>第 47 期报名通道开启，新增「城市夜行」赛道</h3>
+            <p>本期共设 4 个赛道、30 个入围名额，报名截止 11 月 26 日 20:00。</p>
+          </div>
+        </div>
+        <div class="baoliao-news-item">
+          <div class="baoliao-news-date"><b>15</b><span>11 月</span></div>
+          <div>
+            <h3>《城市夜行》专题第四周更新，新增 6 条作品</h3>
+            <p>专题页同步上线拍摄手记，作者可申请加入线下采风名单。</p>
+          </div>
+        </div>
+        <div class="baoliao-news-item">
+          <div class="baoliao-news-date"><b>09</b><span>11 月</span></div>
+          <div>
+            <h3>内容审核规范 3.0 版发布，新增肖像处理细则</h3>
+            <p>明确了公共场所拍摄、未成年人出镜与信息遮蔽的具体要求。</p>
+          </div>
+        </div>
+        <div class="baoliao-news-item">
+          <div class="baoliao-news-date"><b>02</b><span>11 月</span></div>
+          <div>
+            <h3>年度影像年鉴启动征集，面向全站创作者</h3>
+            <p>入选作品将收录于年度合集，并获邀参加年末线下展映活动。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 报名入口 / 联系 -->
+  <section class="baoliao-section" id="baoliao-entry">
+    <div class="baoliao-wrap">
+      <div class="baoliao-contact">
+        <div class="baoliao-contact-grid">
+          <div>
+            <div class="baoliao-kicker" style="color:#f2a63b">报名入口 · 合作联系</div>
+            <h2>把你在街角看到的那一幕，交给我们</h2>
+            <p>第 47 期报名截止 11 月 26 日 20:00。填写基本信息并附上作品素材，24 小时内会收到初审反馈。品牌合作、城市站共建与线下活动申请，也请通过同一入口提交。</p>
+            <div class="baoliao-contact-actions">
+              <button class="baoliao-btn baoliao-btn--light" data-baoliao-entry-open>立即报名参赛</button>
+              <button class="baoliao-btn baoliao-btn--ghost" style="border-color:rgba(255,255,255,.5);color:#fff" data-baoliao-share>分享入口</button>
+              <button class="baoliao-btn baoliao-btn--ghost" style="border-color:rgba(255,255,255,.5);color:#fff" data-baoliao-report>反馈与举报</button>
+            </div>
+          </div>
+          <div class="baoliao-contact-info">
+            <div><b>报名方式</b><span>本页「立即报名参赛」按钮，或站内消息提交</span></div>
+            <div><b>合作邮箱</b><span>arena@baoliao-daily.example</span></div>
+            <div><b>工作时间</b><span>每日 10:00 – 22:00（节假日不休）</span></div>
+            <div><b>邮寄地址</b><span>城市影像中心 · 创作社区运营组</span></div>
+            <div><b>提示</b><span>官方不收取任何报名费用，请勿向第三方付款</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="baoliao-section baoliao-section--tint" id="baoliao-faq">
+    <div class="baoliao-wrap">
+      <div class="baoliao-sec-head" style="max-width:760px;margin-left:auto;margin-right:auto;text-align:center">
+        <div class="baoliao-kicker" style="justify-content:center">帮助中心 · FAQ</div>
+        <h2>关于报名与参赛的常见问题</h2>
+        <p>没有找到答案？可通过上方反馈入口联系我们，运营组会在一个工作日内回复。</p>
+      </div>
+      <div class="baoliao-faq">
+        <details>
+          <summary>报名「每日爆料大赛」需要什么条件？</summary>
+          <div class="baoliao-faq-body">年满 18 周岁、能够独立完成一条 30 秒以上视频即可报名，不需要专业设备。未成年人需监护人签署同意书，并由监护人陪同参与。报名信息仅用于赛事联络与作品归档，不会对外公开。</div>
+        </details>
+        <details>
+          <summary>作品时长和格式有什么要求？</summary>
+          <div class="baoliao-faq-body">建议时长 60 秒至 5 分钟，横屏 16:9 或竖屏 9:16 均可，分辨率不低于 1080P。请提交无字幕的原始文件或可下载链接，站内会对画面做统一转码与高清处理。素材量建议为成片时长的 6 倍以上。</div>
+        </details>
+        <details>
+          <summary>涉及他人出镜的内容该怎么处理？</summary>
+          <div class="baoliao-faq-body">在公共场所拍摄时，请尽量避免清晰呈现与事件无关的第三方面部；涉及当事人陈述的，建议取得口头同意并在片尾说明。住址、车牌、门牌号、工作单位等信息请做遮蔽处理。审核团队会在初审时逐条给出修改建议。</div>
+        </details>
+        <details>
+          <summary>如何知道自己是否入围？</summary>
+          <div class="baoliao-faq-body">初审结果会在提交后 24 小时内通过站内消息与邮件同步，入围名单于每期结束后第三日在本官网公示，并同步更新热度榜与新人榜。入围作者会收到线下展映与创作基金的申请说明。</div>
+        </details>
+        <details>
+          <summary>作品版权归谁所有？</summary>
+          <div class="baoliao-faq-body">作品著作权归作者本人所有。作者授予平台在赛事宣传、专题展示与年度合集中非独占使用的权利，使用时会标注作者署名。平台不会将作品转授权给第三方用于商业广告，如需商用会另行签署协议。</div>
+        </details>
+        <details>
+          <summary>可以重复提交往期作品吗？</summary>
+          <div class="baoliao-faq-body">不建议重复提交。曾在前 46 期公开发布过的作品，仅当本期做了实质性重剪（新增素材超过 30%）时方可再次参赛，并在提交时注明。重复提交未修改作品会被取消当期资格。</div>
+        </details>
+        <details>
+          <summary>城市站线下采风怎么报名？</summary>
+          <div class="baoliao-faq-body">每个城市站每年举办两场采风，报名信息在赛事动态与专题页发布。优先面向当季参赛作者与新人榜作者，名额有限，需签署安全须知。活动全程免费，不包含个人交通与食宿费用。</div>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="baoliao-footer">
+  <div class="baoliao-wrap">
+    <div class="baoliao-footer-grid">
+      <div>
+        <div class="baoliao-footer-brand">
+          <span class="baoliao-logo" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9 6l10 6-10 6z" fill="#fff"/></svg>
+          </span>
+          <span class="baoliao-brand-name" style="color:#fff">每日爆料大赛
+            <span class="baoliao-brand-sub">BAOLIAO ARENA</span>
+          </span>
+        </div>
+        <p>每日爆料大赛官方网站，专注原创纪实影像的赛事与社区平台。深耕爆料影像垂直领域，以专业审核与持续运营，为创作者提供值得信赖的内容生态。</p>
+      </div>
+      <div>
+        <h4>浏览</h4>
+        <ul>
+          <li><a href="#baoliao-focus">焦点内容</a></li>
+          <li><a href="#baoliao-topics">专题企划</a></li>
+          <li><a href="#baoliao-creators">创作者矩阵</a></li>
+          <li><a href="#baoliao-wall">影像墙</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>参与</h4>
+        <ul>
+          <li><a href="#baoliao-entry">报名入口</a></li>
+          <li><a href="#baoliao-inspire">创作指南</a></li>
+          <li><a href="#baoliao-rank">数据榜单</a></li>
+          <li><a href="#baoliao-faq">帮助中心</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于</h4>
+        <ul>
+          <li><a href="#baoliao-about">品牌故事</a></li>
+          <li><a href="#baoliao-news">企业动态</a></li>
+          <li><a href="#baoliao-entry">合作联系</a></li>
+          <li><a href="#baoliao-entry">反馈与举报</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="baoliao-footer-bottom">
+      <span>© 2026 每日爆料大赛 · 官方网站 | 版权所有 | 持续运营中</span>
+      <span>原创内容 · 尊重当事人 · <b>值得信赖</b>的爆料影像社区</span>
+    </div>
+  </div>
+</footer>
+
+<button class="baoliao-topbtn" id="baoliaoTopBtn" aria-label="回到顶部">↑</button>
+<div class="baoliao-toast" id="baoliaoToast" role="status" aria-live="polite"></div>
+
+<!-- 通用信息弹窗 -->
+<div class="baoliao-modal" id="baoliaoInfoModal" role="dialog" aria-modal="true" aria-labelledby="baoliaoInfoTitle">
+  <div class="baoliao-modal-box">
+    <button class="baoliao-modal-close" data-baoliao-close aria-label="关闭">×</button>
+    <h3 id="baoliaoInfoTitle">标题</h3>
+    <p class="bm-desc" id="baoliaoInfoDesc"></p>
+    <button class="baoliao-btn baoliao-btn--solid" data-baoliao-close style="width:100%;justify-content:center">知道了</button>
+  </div>
+</div>
+
+<!-- 报名弹窗 -->
+<div class="baoliao-modal" id="baoliaoEntryModal" role="dialog" aria-modal="true" aria-labelledby="baoliaoEntryTitle">
+  <div class="baoliao-modal-box">
+    <button class="baoliao-modal-close" data-baoliao-close aria-label="关闭">×</button>
+    <h3 id="baoliaoEntryTitle">报名第 47 期每日爆料大赛</h3>
+    <p class="bm-desc">填写基本信息后，运营组会在 24 小时内与你联系，并发送素材提交清单。</p>
+    <form id="baoliaoEntryForm">
+      <input type="text" name="name" placeholder="你的称呼或创作者昵称" required>
+      <input type="text" name="contact" placeholder="联系邮箱或站内账号" required>
+      <textarea name="idea" rows="3" placeholder="简单描述你想拍的内容（选填）"></textarea>
+      <button type="submit" class="baoliao-btn baoliao-btn--solid" style="width:100%;justify-content:center">提交报名信息</button>
+    </form>
+  </div>
+</div>
+
+<!-- 分享弹窗 -->
+<div class="baoliao-modal" id="baoliaoShareModal" role="dialog" aria-modal="true" aria-labelledby="baoliaoShareTitle">
+  <div class="baoliao-modal-box">
+    <button class="baoliao-modal-close" data-baoliao-close aria-label="关闭">×</button>
+    <h3 id="baoliaoShareTitle">分享每日爆料大赛入口</h3>
+    <p class="bm-desc">把入口发给同样喜欢记录的朋友，一起参加本期赛事。</p>
+    <div class="baoliao-share-row">
+      <button data-baoliao-copy>复制链接</button>
+      <button data-baoliao-share-to="微信">微信</button>
+      <button data-baoliao-share-to="微博">微博</button>
+      <button data-baoliao-share-to="QQ">QQ</button>
+    </div>
+  </div>
+</div>
+
+<!-- 举报弹窗 -->
+<div class="baoliao-modal" id="baoliaoReportModal" role="dialog" aria-modal="true" aria-labelledby="baoliaoReportTitle">
+  <div class="baoliao-modal-box">
+    <button class="baoliao-modal-close" data-baoliao-close aria-label="关闭">×</button>
+    <h3 id="baoliaoReportTitle">反馈与举报</h3>
+    <p class="bm-desc">如发现信息不实、侵犯隐私或违规内容，请简要说明，我们会在 24 小时内核查。</p>
+    <form id="baoliaoReportForm">
+      <input type="text" name="target" placeholder="涉及的作品或页面" required>
+      <textarea name="detail" rows="3" placeholder="请描述具体情况" required></textarea>
+      <button type="submit" class="baoliao-btn baoliao-btn--solid" style="width:100%;justify-content:center">提交反馈</button>
+    </form>
+  </div>
+</div>
+
+<script>
+(function(){
+  var toastEl = document.getElementById('baoliaoToast');
+  var toastTimer = null;
+  function showToast(msg){
+    if(!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.classList.add('is-on');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('is-on'); }, 2200);
+  }
+
+  /* 移动端导航 */
+  var burger = document.getElementById('baoliaoBurger');
+  var nav = document.getElementById('baoliaoNav');
+  if(burger && nav){
+    burger.addEventListener('click', function(){
+      var open = nav.classList.toggle('is-open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        nav.classList.remove('is-open');
+        burger.setAttribute('aria-expanded','false');
+      });
+    });
+  }
+
+  /* 搜索反馈 */
+  var searchForm = document.getElementById('baoliaoSearchForm');
+  var searchInput = document.getElementById('baoliaoSearchInput');
+  var searchFeedback = document.getElementById('baoliaoSearchFeedback');
+  var focusCards = Array.prototype.slice.call(document.querySelectorAll('#baoliaoFocusGrid [data-baoliao-keywords]'));
+
+  function runSearch(q){
+    q = (q || '').trim();
+    if(!q){
+      if(searchFeedback){ searchFeedback.textContent = '请输入关键词，例如「夜行」「地铁」「菜市场」「剪辑」。'; searchFeedback.classList.add('is-on'); }
+      return;
+    }
+    var hits = focusCards.filter(function(card){
+      return card.getAttribute('data-baoliao-keywords').indexOf(q) > -1;
+    });
+    focusCards.forEach(function(card){
+      card.style.opacity = hits.length === 0 ? '1' : (hits.indexOf(card) > -1 ? '1' : '0.4');
+    });
+    if(searchFeedback){
+      searchFeedback.textContent = hits.length > 0
+        ? '为你找到 ' + hits.length + ' 条与「' + q + '」相关的焦点内容，已在下方向你高亮显示。'
+        : '暂未匹配到与「' + q + '」直接相关的焦点内容，可尝试「夜行」「地铁」「菜市场」「剪辑」「小巷」等关键词。';
+      searchFeedback.classList.add('is-on');
+    }
+    if(hits.length > 0){ document.getElementById('baoliao-focus').scrollIntoView({behavior:'smooth'}); }
+  }
+
+  if(searchForm){
+    searchForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      runSearch(searchInput ? searchInput.value : '');
+    });
+  }
+
+  /* 点赞 */
+  document.querySelectorAll('[data-baoliao-like]').forEach(function(btn){
+    var base = parseInt(btn.getAttribute('data-baoliao-like'), 10) || 0;
+    var span = btn.querySelector('span');
+    btn.addEventListener('click', function(){
+      var liked = btn.classList.toggle('is-liked');
+      if(span){ span.textContent = (liked ? base + 1 : base).toLocaleString('zh-CN'); }
+      showToast(liked ? '已为本条爆料点赞' : '已取消点赞');
+    });
+  });
+
+  /* 弹窗通用 */
+  function openModal(id){
+    var m = document.getElementById(id);
+    if(m){ m.classList.add('is-open'); }
+  }
+  function closeAllModals(){
+    document.querySelectorAll('.baoliao-modal.is-open').forEach(function(m){ m.classList.remove('is-open'); });
+  }
+  document.querySelectorAll('[data-baoliao-close]').forEach(function(b){
+    b.addEventListener('click', closeAllModals);
+  });
+  document.querySelectorAll('.baoliao-modal').forEach(function(m){
+    m.addEventListener('click', function(e){ if(e.target === m){ closeAllModals(); } });
+  });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ closeAllModals(); } });
+
+  /* 作者档案 */
+  document.querySelectorAll('[data-baoliao-author]').forEach(function(el){
+    el.addEventListener('click', function(){
+      var parts = el.getAttribute('data-baoliao-author').split('|');
+      document.getElementById('baoliaoInfoTitle').textContent = parts[0] || '作者档案';
+      document.getElementById('baoliaoInfoDesc').textContent = (parts[1] ? parts[1] + '。' : '') + (parts[2] || '');
+      openModal('baoliaoInfoModal');
+    });
+  });
+
+  /* 分享 */
+  document.querySelectorAll('[data-baoliao-share]').forEach(function(b){
+    b.addEventListener('click', function(){ openModal('baoliaoShareModal'); });
+  });
+  document.querySelectorAll('[data-baoliao-share-to]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var target = b.getAttribute('data-baoliao-share-to');
+      showToast('已生成 ' + target + ' 分享内容，可粘贴给好友');
+      setTimeout(closeAllModals, 700);
+    });
+  });
+  document.querySelectorAll('[data-baoliao-copy]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var link = window.location.origin + window.location.pathname + '#baoliao-entry';
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(link).then(function(){
+          showToast('入口链接已复制到剪贴板');
+          setTimeout(closeAllModals, 600);
+        }).catch(function(){
+          showToast('复制失败，请手动选择地址栏链接');
+        });
+      } else {
+        showToast('当前环境不支持自动复制，请手动复制地址栏链接');
+      }
+    });
+  });
+
+  /* 举报 */
+  document.querySelectorAll('[data-baoliao-report]').forEach(function(b){
+    b.addEventListener('click', function(){ openModal('baoliaoReportModal'); });
+  });
+  var reportForm = document.getElementById('baoliaoReportForm');
+  if(reportForm){
+    reportForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      reportForm.reset();
+      closeAllModals();
+      showToast('反馈已提交，我们会在 24 小时内核查');
+    });
+  }
+
+  /* 报名 */
+  document.querySelectorAll('[data-baoliao-entry-open]').forEach(function(b){
+    b.addEventListener('click', function(){ openModal('baoliaoEntryModal'); });
+  });
+  var entryForm = document.getElementById('baoliaoEntryForm');
+  if(entryForm){
+    entryForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      entryForm.reset();
+      closeAllModals();
+      showToast('报名信息已提交，请留意站内消息');
+    });
+  }
+
+  /* 回到顶部 */
+  var topBtn = document.getElementById('baoliaoTopBtn');
+  if(topBtn){
+    topBtn.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+    window.addEventListener('scroll', function(){
+      if(window.scrollY > 520){ topBtn.classList.add('is-on'); }
+      else { topBtn.classList.remove('is-on'); }
+    }, {passive:true});
+  }
+
+  /* 数字滚动 */
+  var counters = document.querySelectorAll('[data-baoliao-count]');
+  var counted = false;
+  function animateCounters(){
+    if(counted) return;
+    counted = true;
+    counters.forEach(function(el){
+      var target = parseInt(el.getAttribute('data-baoliao-count'), 10) || 0;
+      var start = 0;
+      var dur = 900;
+      var t0 = null;
+      function step(t){
+        if(!t0) t0 = t;
+        var p = Math.min((t - t0) / dur, 1);
+        var val = Math.floor(start + (target - start) * (1 - Math.pow(1 - p, 3)));
+        el.textContent = val.toLocaleString('zh-CN');
+        if(p < 1){ requestAnimationFrame(step); }
+        else { el.textContent = target.toLocaleString('zh-CN'); }
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  if('IntersectionObserver' in window && counters.length){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ animateCounters(); io.disconnect(); } });
+    }, {threshold:.4});
+    io.observe(counters[0]);
+  } else {
+    animateCounters();
+  }
+})();
+</script>
+</body>
+        </html>
